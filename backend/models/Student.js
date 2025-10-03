@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defining the Schema to follow specific rules for collections 
 const studentSchema = new mongoose.Schema({
   name: {
     type: String,
