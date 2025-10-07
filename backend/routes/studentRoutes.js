@@ -1,6 +1,13 @@
 const express = require('express');
 const Student = require('../models/Student');
 const router = express.Router();
+const studentController = require('../controllers/studentController');
+
+router.post('/', studentController.createStudent);
+router.get('/', studentController.getStudents);
+router.get('/:id', studentController.getStudent);
+router.put('/:id', studentController.updateStudent);
+router.delete('/:id', studentController.deleteStudent);
 
 // @desc   Get all students
 // @route  GET /api/students
@@ -29,8 +36,8 @@ router.get('/:id', async (req, res) => {
 // @route  POST /api/students
 router.post('/', async (req, res) => {
   try {
-    const { name, age, grade } = req.body;
-    const student = new Student({ name, age, grade });
+    const { name, age, course, year } = req.body;
+    const student = new Student({ name, age, course, year });
     const savedStudent = await student.save();
     res.status(201).json(savedStudent);
   } catch (err) {
@@ -42,10 +49,10 @@ router.post('/', async (req, res) => {
 // @route  PUT /api/students/:id
 router.put('/:id', async (req, res) => {
   try {
-    const { name, age, grade } = req.body;
+    const { name, age, course, year } = req.body;
     const updatedStudent = await Student.findByIdAndUpdate(
       req.params.id,
-      { name, age, grade },
+      { name, age, course,year },
       { new: true }
     );
     if (!updatedStudent) return res.status(404).json({ message: 'Student not found' });
