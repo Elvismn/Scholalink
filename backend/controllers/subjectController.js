@@ -65,5 +65,5 @@ module.exports = {
   getSubjects,
   getSubject,
   updateSubject,
-  deleteSubject
+  deleteSubject   
 };
