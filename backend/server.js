@@ -11,6 +11,7 @@ const classroomRoutes = require('./routes/classroomRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
+const authRoutes = require("./routes/authRoutes");
 
 // Load environment variables
 dotenv.config();
@@ -39,7 +40,7 @@ app.use('/api/classrooms', classroomRoutes);
 app.use('/api/admins', adminRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/enrollments", enrollmentRoutes);
-
+app.use("/api/auth", authRoutes);
 
 // Define PORT
 const PORT = process.env.PORT || 5000;
