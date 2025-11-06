@@ -1,0 +1,19 @@
+{
+    // jsconfig for VS Code IntelliSense, path mapping, and simple JS/React project settings
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "checkJs": true,
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@utils/*": ["src/utils/*"]
+        }
+    },
+    "include": ["src/**/*", "types/**/*"],
+    "exclude": ["node_modules", "dist", "build"]
+}
