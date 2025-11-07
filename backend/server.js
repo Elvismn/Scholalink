@@ -21,9 +21,12 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ Middleware
 app.use(express.json());
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGINS || "http://127.0.0.1:5173", 
+  credentials: true
+}));
 
 // Simple test route
 app.get('/', (req, res) => {
